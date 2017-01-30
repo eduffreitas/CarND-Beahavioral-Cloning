@@ -1,0 +1,41 @@
+name: behavioral-cloning
+channels: !!python/tuple
+- defaults
+dependencies:
+- freetype=2.5.5=2
+- h5py=2.6.0=np111py35_2
+- hdf5=1.8.17=1
+- jbig=2.1=0
+- jpeg=9b=0
+- keras=1.1.1=py35_0
+- libgfortran=3.0.0=1
+- libpng=1.6.27=0
+- libprotobuf=3.0.0=0
+- libtiff=4.0.6=3
+- mkl=2017.0.1=0
+- mkl-service=1.1.2=py35_3
+- mock=2.0.0=py35_0
+- numpy=1.11.3=py35_0
+- openssl=1.0.2k=0
+- pbr=1.10.0=py35_0
+- pillow=4.0.0=py35_0
+- pip=9.0.1=py35_1
+- protobuf=3.0.0=py35_1
+- python=3.5.2=0
+- pyyaml=3.12=py35_0
+- readline=6.2=2
+- scipy=0.18.1=np111py35_1
+- setuptools=27.2.0=py35_0
+- six=1.10.0=py35_0
+- sqlite=3.13.0=0
+- tensorflow=0.10.0rc0=np111py35_0
+- theano=0.8.2=py35_0
+- tk=8.5.18=0
+- wheel=0.29.0=py35_0
+- xz=5.2.2=1
+- yaml=0.1.6=0
+- zlib=1.2.8=3
+- pip:
+  - olefile==0.44
+prefix: /home/carnd/anaconda3/envs/behavioral-cloning
+
