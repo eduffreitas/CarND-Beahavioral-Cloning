@@ -1,5 +1,5 @@
 name: behavioral-cloning
-channels: !!python/tuple
+channels:
 - defaults
 dependencies:
 - freetype=2.5.5=2
