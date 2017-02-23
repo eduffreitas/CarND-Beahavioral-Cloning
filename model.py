@@ -1,4 +1,3 @@
-import pickle
 import csv
 import numpy as np
 import cv2
@@ -7,7 +6,6 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 import os.path
 import matplotlib.pyplot as plt
-
 np.random.seed(42)
 
 
