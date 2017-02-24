@@ -28,6 +28,10 @@ Here I do histogram on the training target, this is also how I try to check if t
 
 ![alt text](./data.png "Model Visualization")
 
+Below you can find respectively a center driving image and a recovery driving image.
+
+![alt text](./center.jpg "Recovery") ![alt text](./recovery.jpg "Recovery") 
+
 # Model
 
 For the model I decided to experiment with the VGG16 pre-trained model.
@@ -87,5 +91,5 @@ Also I am using a ModelCheckpoint to save the best evaluated model.
 
 Tests were done straight into the simulator.
 
-The final model can be found on this ![alt text](https://s3-eu-west-1.amazonaws.com/carnd-project-3/model.h5 "link")
+The final model can be found on this [link]:https://s3-eu-west-1.amazonaws.com/carnd-project-3/model.h5
 
