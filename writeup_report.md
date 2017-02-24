@@ -87,5 +87,5 @@ Also I am using a ModelCheckpoint to save the best evaluated model.
 
 Tests were done straight into the simulator.
 
-The final model can be found on this ![alt text](https://s3-eu-west-1.amazonaws.com/carnd-project-3/model.h5 "link")
+The final model can be found on this [link]:https://s3-eu-west-1.amazonaws.com/carnd-project-3/model.h5
 
