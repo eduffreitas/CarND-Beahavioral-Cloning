@@ -1,18 +1,18 @@
-# CarND Behavioral Cloning Project
+# CarND Behavioural Cloning Project
 
-This project is about training a neural network to drive a car on a simulator using data recorded from a humman driver.
+This project is about training a neural network to drive a car on a simulator using data recorded from a human driver.
 
 This notebook will be used to create the model to be used in driving the car on the simulator.
 
-The inputs come in three images right, central and left cameras. I decided to use only the center one, because the get good valid values for the left and right images was a bit dificult.
+The inputs come in three images right, central and left cameras. I decided to use only the center one, because the get good valid values for the left and right images was a bit difficult.
 
-The first thing to do is to clean, then oganize the dataset, and save it to a csv file. for posterior use.
+The first thing to do is to clean, then organise the data set, and save it to a csv file. for posterior use.
 
 The file driving_log.csv contains steering angles and the left, right and center images associated to it.
 
-### Dataset preparation
+### Data set preparation
 
-I first get all records regarding the center image and shufle them.
+I first get all records regarding the center image and shuffle them.
 
 Then I split the data into train 80% and validation 20%
 
@@ -20,13 +20,13 @@ Next I save the train and validation array to csv files
 
 ### Load data 
 
-In this step the csv files into memory, they are already pre shufled and split
+In this step the csv files into memory, they are already pre-shuffled and split
 
 ### Explore data
 
 Here I do histogram on the training target, this is also how I try to check if the recorded data is balanced enough, to produce a balanced solution.
 
-![alt text](./data.png "Model Visualization")
+![alt text](./data.png "Model Visualisation")
 
 Below you can find respectively a center driving image and a recovery driving image.
 
@@ -44,15 +44,15 @@ But I also experimented with other models, that also performed well but not as w
 
 Relu layers were used to introduce non linearity.
 
-## Chalenges
+## Challenges
 
-### Data Colection
+### Data Collection
 
-For me the bigest chalenge was collecting the right data to train the model.
+For me the biggest challenge was collecting the right data to train the model.
 
-I had to redo the dataset a few times either because sometimes I had too much recovery examples or too little recovery examples. But in the begining this was a major set back because I thought that the model was the problem, when in reality the problem was the incredibly imbalanced data that I had.
+I had to redo the data set a few times either because sometimes I had too much recovery examples or too little recovery examples. But in the beginning this was a major set back because I thought that the model was the problem, when in reality the problem was the incredibly imbalanced data that I had.
 
-My Dataset is composed of:
+My Data set is composed of:
 - Two center driving laps on the correct direction.
 - Two center driving laps on the wrong direction.
 - One lap revering from the right on the correct direction
@@ -65,18 +65,18 @@ My Dataset is composed of:
 
 I also faced a few issues with memory.
 
-First it's not possible to load the entire dataset into memmory, so a fit generator was used to create the train and validation set, I also flipped the image horizontaly doubling the dataset size, also in the hope of introducing some generalization with it.
+First it's not possible to load the entire data set into memory, so a fit generator was used to create the train and validation set, I also flipped the image horizontally doubling the data set size, also in the hope of introducing some generalisation with it.
 
-Second I had to use smaler batch sizes, because tha GPU that I was using couldn't handle much data.
+Second I had to use smaller batch sizes, because the GPU that I was using couldn't handle much data.
 
-## Croping
+## Cropping
 
-The original image has a shape of (160, 320, 3) than I've croped 60 pixels from the top and 20 pixels from the bottom, to eliminate noise from the top and car.
+The original image has a shape of (160, 320, 3) than I've cropped 60 pixels from the top and 20 pixels from the bottom, to eliminate noise from the top and car.
 
-I've also used the Lambda layer after to normalize the image
+I've also used the Lambda layer after to normalise the image
 
 
-![alt text](./model.png "Model Visualization")
+![alt text](./model.png "Model Visualisation")
 
 ## Disadvantages
 
@@ -85,11 +85,10 @@ The resulting model was unnecessarily heavy, because of the VGG model.
 
 # Training
 
-I chose to use a RMSprop optimizer, because some research poited that it would be quicker to converge.
+I chose to use a RMSprop optimiser, because some research poited that it would be quicker to converge.
 
 Also I am using a ModelCheckpoint to save the best evaluated model.
 
 Tests were done straight into the simulator.
 
 The final model can be found on this [link]:https://s3-eu-west-1.amazonaws.com/carnd-project-3/model.h5
-
