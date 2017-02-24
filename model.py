@@ -35,41 +35,6 @@ if not(os.path.exists('train.csv') and os.path.exists('validation.csv')):
             path = './data/' + ReplaceWrongPath(row['center'].strip())        
             X_train.append(path)
             y_train.append(steering)
-            continue
-            
-            if steering == 0:
-                continue
-                
-            if steering < 0:
-                #left image
-                path = './data/' + ReplaceWrongPath(row['left'].strip())
-                steering_left = steering + 0.2
-
-                X_train_left.append(path)
-                y_train_left.append(steering_left)
-
-                #right image
-                path = './data/' + ReplaceWrongPath(row['right'].strip())
-                steering_right = steering - 0.2
-                steering_right = steering_right if steering_right > -1 else -1
-
-                X_train_right.append(path)
-                y_train_right.append(steering_right)
-            else:
-                #left image
-                path = './data/' + ReplaceWrongPath(row['left'].strip())
-                steering_left = steering + 0.2
-                steering_left = steering_left if steering_left < 1 else 1
-
-                X_train_left.append(path)
-                y_train_left.append(steering_left)
-
-                #right image
-                path = './data/' + ReplaceWrongPath(row['right'].strip())
-                steering_right = steering - 0.2
-
-                X_train_right.append(path)
-                y_train_right.append(steering_right)
 
     X_train, y_train = shuffle(X_train, y_train)
     X_train, X_validation, y_train, y_validation = train_test_split(X_train, y_train, test_size=0.2, random_state=42)
@@ -239,7 +204,7 @@ validation_rows = len(X_validation)
 print('train records: ', train_rows)
 print('validation records: ', validation_rows)
 
-from keras.optimizers import RMSprop, Adam
+from keras.optimizers import RMSprop
 from keras.callbacks import ModelCheckpoint
 
 model = get_model()
@@ -250,7 +215,7 @@ checkpoint = ModelCheckpoint('model2.h5', monitor='val_loss', verbose=1, save_be
 history = model.fit_generator(
     generate_arrays_from_file('train.csv',batch_size=15), 
     samples_per_epoch=train_rows*2, 
-    nb_epoch=30, 
+    nb_epoch=1, 
     validation_data=generate_arrays_from_file('validation.csv', batch_size=10, flip=True),
     nb_val_samples=validation_rows*2, 
     callbacks=[checkpoint])
