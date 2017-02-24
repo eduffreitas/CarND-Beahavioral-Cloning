@@ -26,7 +26,7 @@ In this step the csv files into memory, they are already pre shufled and split
 
 Here I do histogram on the training target, this is also how I try to check if the recorded data is balanced enough, to produce a balanced solution.
 
-![alt text](./model.png "Model Visualization")
+![alt text](./data.png "Model Visualization")
 
 # Model
 
